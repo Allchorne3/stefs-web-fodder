@@ -1,0 +1,64 @@
+@use '../abstracts/variables' as *;
+
+$screen-sizes: (
+    mobile: 649px,
+    tablet: 768px,
+    desktop: 1024px,
+    large-desktop: 1249px
+);
+
+// Hide on screen sizes
+@each $size, $px in $screen-sizes {
+    .show-#{$size}-only {
+        @media (min-width: $px) {
+            display: none !important;
+        }
+    }
+}
+
+// Media queries MAX WIDTH
+@mixin mobile {
+    @media screen and (max-width: $mobile) {
+        @content;
+    }
+}
+@mixin mobile-min {
+    @media screen and (min-width: $mobile) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media screen and (max-width: $tablet) {
+        @content;
+    }
+}
+@mixin tablet-min {
+    @media screen and (min-width: $tablet) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media screen and (max-width: $desktop) {
+        @content;
+    }
+}
+
+@mixin widescreen {
+    @media screen and (max-width: $widescreen) {
+        @content;
+    }
+}
+
+@mixin until($until) {
+    @media screen and (max-width: $until) {
+        @content;
+    }
+}
+
+@mixin from($from) {
+    @media screen and (min-width: $from) {
+        @content;
+    }
+}
