@@ -1,8 +1,13 @@
 @use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as m;
 
 /* //////////////////////
 	General styling
   /////////////////////// */
+
+html {
+	scroll-behavior: smooth;
+}
 
 .body-bg {
 	z-index: -1;

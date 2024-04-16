@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Playfair+Display:wght@400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Playfair+Display:wght@400;700;900&display=swap');
 
 @font-face {
     font-family: 'gaiadisplay';
@@ -10,14 +10,15 @@
 // Screen size
 $mobile: 649px;
 $tablet: 768px;
+$tableth: 899px;
 $desktop: 1024px;
 $widescreen: 1249px;
 
 // Font size
 $fs-banner: 8.5rem; // 136px
 $fs-huge: 4.5rem; // 72px
-$fs-0: 3.5rem; //60px
-$fs-1: 2.5rem; //40px
+$fs-0: 3.5rem; //56px
+$fs-1: 3rem; //48px
 $fs-2: 2rem; //32px;
 $fs-3: 1.5rem; //24px;
 $fs-4: 1.25rem; //20px;
@@ -27,7 +28,7 @@ $fs-7: .875rem; //14px
 
 // Fonts
 $ff-heading: "gaiadisplay", serif;
-$ff-body: "Inter", sans-serif;
+$ff-body: "Poppins", sans-serif;
 
 // Font weight
 $fw-100: 100;
@@ -42,14 +43,20 @@ $fw-900: 900;
 
 // Colours
 $clr-primary: #B0D391;
-$clr-secondry: navy;
+$clr-secondary: #827CEC;
 $black: #111111;
 $white: #fefefe;
-$site-color: $white;
+$site-color: $black;
+
+// Border
+$border: solid 1px $site-color;
 
 // Border radius
 $br-medium: 14px;
 $br-large: 2rem;
+
+// Transitions
+$transition3: .3s ease-in-out;
 
 // Shadows
 $box-shadow-subtle: 0 0 7px 2px rgba(0,0,0,.1);

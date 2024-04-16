@@ -11,6 +11,11 @@ module.exports = function(eleventyConfig) {
         return collection.getFilteredByTag("post").filter(item => item.data.featured);
     });
 
+    // fodder
+    eleventyConfig.addCollection("fodderItems", collection => {
+        return collection.getFilteredByTag("fodder")
+    });
+
     // Expose Nunjucks filters
     eleventyConfig.addFilter("prettyDate", prettyDate);
 

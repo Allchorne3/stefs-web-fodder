@@ -3,14 +3,15 @@
 $screen-sizes: (
     mobile: 649px,
     tablet: 768px,
+    tableth: 899px,
     desktop: 1024px,
     large-desktop: 1249px
 );
 
 // Hide on screen sizes
 @each $size, $px in $screen-sizes {
-    .show-#{$size}-only {
-        @media (min-width: $px) {
+    .hide-#{$size} {
+        @media (max-width: $px) {
             display: none !important;
         }
     }
@@ -39,8 +40,24 @@ $screen-sizes: (
     }
 }
 
+@mixin tableth {
+    @media screen and (max-width: $tableth) {
+        @content;
+    }
+}
+@mixin tableth-min {
+    @media screen and (min-width: $tableth) {
+        @content;
+    }
+}
+
 @mixin desktop {
     @media screen and (max-width: $desktop) {
+        @content;
+    }
+}
+@mixin desktop-min {
+    @media screen and (min-width: $desktop) {
         @content;
     }
 }

@@ -2,18 +2,41 @@
 @use '../abstracts/mixins' as m;
 
 /* typgraphy */
-h1, h2, h3, h4, h5, h6 {
+body {
+    color: $site-color;
+    font-family: $ff-body;
+    font-weight: $fw-200;
+}
+
+h1, h2, h3, h4, h5, h6, ul:not(.body-copy) {
     font-family: $ff-heading;
 }
 
-body {
-    color: $site-color;
+h2 {
+    font-size: $fs-2;
+    line-height: 1;
+
+    @include m.desktop-min {
+        font-size: $fs-1;
+    }
 }
 
-// $widescreen: 1249px;
-// $desktop: 1024px;
-// $tablet: 768px;
-// $mobile: 649px;
+p.subtitle {
+    font-size: $fs-6;
+
+    @include m.desktop-min {
+        font-size: $fs-5;
+    }
+}
+
+ul:not(.body-copy) {
+    font-size: $fs-4;
+    text-align: right;
+
+    @include m.desktop-min {
+        font-size: $fs-2;
+    }
+}
 
 .hero-body {
     h1 {

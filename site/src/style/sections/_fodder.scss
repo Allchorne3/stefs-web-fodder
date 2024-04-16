@@ -1,0 +1,194 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as m;
+
+#section-fodder {
+    margin-bottom: 1.5rem;
+
+    @include m.mobile-min {
+        margin-bottom: 6rem;
+    }
+
+    .fodder-container {
+        display: grid;
+        grid-template-columns: 1fr;
+        
+        @include m.tableth-min {
+            grid-template-columns: 1fr 2.5fr;
+            border: $border;
+            border-bottom: none;
+        }
+        
+        // Left container
+        #nav {
+            li {
+                padding: .5rem;
+                position: relative;
+                isolation: isolate;
+                overflow: hidden;
+                
+                &:not(:last-child) {
+                    border-bottom: $border;
+                }
+                
+                &:before {
+                    content: "";
+                    position: absolute;
+                    left: -100%;
+                    top: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: linear-gradient(
+                        to right,
+                        $clr-secondary,
+                        transparent,
+                        );
+                    z-index: -1;
+                    opacity: 1;
+                    transition: left $transition3;
+                }
+
+                &:hover:before {
+                    left: 0;
+                }
+            }
+        }
+
+        // Right container
+        #fodder-accordion {
+            @include m.tableth-min {
+                border-left: $border;
+            }
+
+            .fodder-accordion_item {
+                border: $border;
+
+                @include m.tableth-min {
+                    border-right-width: 0;
+                    border-left-width: 0;
+                    border-top-width: 0;
+                }
+
+                @include m.tableth-min {
+                    padding: 3rem;
+                }
+                
+                .accordion {
+                    &_header {
+                        position: relative;
+                        padding: .5rem;
+                        
+                        @include m.mobile-min {
+                            padding: 1rem 1rem .5rem;
+                        }
+
+                        &:before {
+                            content: "";
+                            position: absolute;
+                            left: 0;
+                            bottom: 0;
+                            width: 0%;
+                            height: 1px;
+                            background: $site-color;
+                            opacity: 0;
+                            transition: 
+                                width .2s ease-in-out;
+                                opacity: .5s ease-in-out;
+                            transition-delay: 100ms 0ms;
+                        }
+                        
+                        @include m.tableth-min {
+                            padding: 0;
+
+                            &::before {
+                                display: none;
+                            }
+                        }
+                    }
+                    
+                    &_content {
+                        height: 0;
+                        overflow: hidden;
+                        transition: height 0.3s ease-out;
+
+                        @include m.tableth-min {
+                            height: auto;
+                        }
+                        
+                        &-inner {
+                            padding: .5rem;
+
+                            p.subtitle {
+                                margin-bottom: .35rem;
+
+                                @include m.tableth-min {
+                                    margin-bottom: 1.3rem;
+                                }
+                            }
+
+                            form {
+                                display: flex;
+                                flex-direction: column;
+                                gap: .35rem;
+                                
+                                .previewer,
+                                .user-input {
+                                    background: none;
+                                    border: $border;
+                                    color: $site-color;
+                                    padding: .5rem;
+                                    
+                                    &:focus, 
+                                    &:focus-within
+                                    &:active {
+                                        outline: none;
+                                    }
+                                    
+                                    &::placeholder {
+                                        color: $site-color;
+                                    }
+                                }
+
+                                label {
+                                    font-size: $fs-6;
+
+                                    @include m.tableth-min {
+                                        font-size: $fs-5;
+                                        margin-top: .35rem;
+                                    }   
+                                }
+
+                                div.previewer {
+                                    min-height: 200px;
+                                }
+                            }
+
+                            @include m.mobile-min {
+                                padding: 1rem;
+                            }
+
+                            @include m.tableth-min {
+                                padding: 0;
+                            }
+
+                        }
+                    }
+                }
+
+                &.is-open {
+                    .accordion_header::before {
+                        width: 100%;
+                        opacity: 1;
+                    }
+                }
+
+                &:not(:last-of-type) {
+                    border-bottom: none;
+
+                    @include m.tableth-min {
+                        border-bottom: $border;
+                    }
+                }
+            }
+        }
+    }
+}
