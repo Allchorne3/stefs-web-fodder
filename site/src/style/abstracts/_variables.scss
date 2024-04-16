@@ -3,7 +3,6 @@
 @font-face {
     font-family: 'gaiadisplay';
     src: url('gaia-webfont.woff2') format('woff2');
-        // url('.../../assets/fonts/gaia-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
@@ -15,8 +14,9 @@ $desktop: 1024px;
 $widescreen: 1249px;
 
 // Font size
+$fs-banner: 8.5rem; // 136px
 $fs-huge: 4.5rem; // 72px
-$fs-0: 3.75rem; //60px
+$fs-0: 3.5rem; //60px
 $fs-1: 2.5rem; //40px
 $fs-2: 2rem; //32px;
 $fs-3: 1.5rem; //24px;
@@ -45,6 +45,7 @@ $clr-primary: #B0D391;
 $clr-secondry: navy;
 $black: #111111;
 $white: #fefefe;
+$site-color: $white;
 
 // Border radius
 $br-medium: 14px;

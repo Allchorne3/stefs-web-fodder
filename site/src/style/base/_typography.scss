@@ -1,6 +1,48 @@
 @use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as m;
 
 /* typgraphy */
 h1, h2, h3, h4, h5, h6 {
     font-family: $ff-heading;
+}
+
+body {
+    color: $site-color;
+}
+
+// $widescreen: 1249px;
+// $desktop: 1024px;
+// $tablet: 768px;
+// $mobile: 649px;
+
+.hero-body {
+    h1 {
+        font-size: $fs-banner;
+        line-height: 1.3;
+
+        @include m.desktop {
+            font-size: $fs-huge;
+        }
+        
+        @include m.tablet {
+            font-size: $fs-0;
+        }
+    }
+}
+
+.banner-title {
+    display: flex;
+    justify-content: center;
+
+    &_wrapper {
+        text-align: right;
+
+        .banner-title_text:first-of-type {
+            padding-right: 11rem;
+
+            @include m.tablet {
+                padding-right: 0;
+            }
+        }
+    }    
 }
