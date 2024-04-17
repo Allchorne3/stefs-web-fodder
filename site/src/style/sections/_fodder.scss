@@ -11,6 +11,12 @@
     .fodder-container {
         display: grid;
         grid-template-columns: 1fr;
+
+        @include m.mobile-min {
+            opacity: 0;
+            transform: translateY(60px);
+            animation: fade 1s cubic-bezier(0, 0.55, 0.45, 1) forwards;
+        }
         
         @include m.tableth-min {
             grid-template-columns: 1fr 2.5fr;
@@ -50,6 +56,18 @@
                 &:hover:before {
                     left: 0;
                 }
+
+                a {
+                    position: relative;
+                    opacity: 0;
+                    left: -20px;
+                    transition: all .5s ease-in-out;
+
+                    &.appear {
+                        opacity: 1;
+                        left: 0;
+                    }
+                }
             }
         }
 
@@ -73,9 +91,33 @@
                 }
                 
                 .accordion {
+                    &_header,
+                    &_content {
+                        position: relative;
+
+                        @include m.tableth-min {
+                            left: 30px;
+                            opacity: 0;
+                            animation: 
+                            fadePos 1.5s ease-in-out forwards,
+                            fade 1.5s ease-in-out forwards;
+                        }
+                    }
+
                     &_header {
                         position: relative;
                         padding: .5rem;
+
+                        h2 {
+                            opacity: 1;
+                            // position: relative;
+                            // left: 30px;
+
+                            &.appear {
+                                opacity: 1;
+                                left: 0;
+                            }
+                        }
                         
                         @include m.mobile-min {
                             padding: 1rem 1rem .5rem;
@@ -98,6 +140,11 @@
                         
                         @include m.tableth-min {
                             padding: 0;
+                            
+                            h2 {
+                                opacity: 1;
+                                left: 0;
+                            }
 
                             &::before {
                                 display: none;
@@ -190,5 +237,17 @@
                 }
             }
         }
+    }
+}
+
+@keyframes fade {
+    to {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+@keyframes fadePos {
+    to {
+        left: 0;
     }
 }

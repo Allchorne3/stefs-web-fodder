@@ -60,12 +60,23 @@ ul:not(.body-copy) {
     &_wrapper {
         text-align: right;
 
-        .banner-title_text:first-of-type {
-            padding-right: 11rem;
-
-            @include m.tablet {
-                padding-right: 0;
+        .banner-title_text {
+            @include m.tableth-min {
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+                
+                .line {
+                    transform: translateY(190px);
+                    transition: $transition3;
+                }
             }
-        }
+
+            &:first-of-type {
+                padding-right: 11rem;
+    
+                @include m.tablet {
+                    padding-right: 0;
+                }
+            }
+        } 
     }    
 }
