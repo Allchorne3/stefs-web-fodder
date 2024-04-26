@@ -1,8 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Playfair+Display:wght@400;700;900&display=swap');
 
+
 @font-face {
-    font-family: 'gaiadisplay';
-    src: url('gaia-webfont.woff2') format('woff2');
+    font-family: 'avoidancegenevraregular';
+    src: url('avoidancegenevr-webfont.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'bon_foyageregular';
+    src: url('bon_foyage_otf-webfont.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
 }
@@ -10,7 +17,7 @@
 // Screen size
 $mobile: 649px;
 $tablet: 768px;
-$tableth: 899px;
+$tableth: 999px;
 $desktop: 1024px;
 $widescreen: 1249px;
 
@@ -27,8 +34,9 @@ $fs-6: 1rem; //16px
 $fs-7: .875rem; //14px
 
 // Fonts
-$ff-heading: "gaiadisplay", serif;
-$ff-body: "Poppins", sans-serif;
+$ff-heading: "avoidancegenevraregular", serif;
+$ff-body: "avoidancegenevraregular", sans-serif;
+$ff-accent: "bon_foyageregular", sans-serif;
 
 // Font weight
 $fw-100: 100;
@@ -41,15 +49,21 @@ $fw-700: 700;
 $fw-800: 800;
 $fw-900: 900;
 
+// Set Variables
+$sidebar-width: 310px;
+
 // Colours
 $clr-primary: #B0D391;
 $clr-secondary: #827CEC;
-$black: #111111;
+$black: #0E100F;
 $white: #fefefe;
-$site-color: $black;
+$creme: #FEFCE1;
+$orange: #E36F44;
+$sage: #4E7256;
+$grey-dark: #42433D;
 
 // Border
-$border: solid 1px $site-color;
+$border-grey-dark: solid 1px $grey-dark;
 
 // Border radius
 $br-medium: 14px;

@@ -1,0 +1,39 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as m;
+
+aside#sidebar {
+    position: sticky;
+    top: 0;
+    background: $black;
+    height: 100vh;
+    width: $sidebar-width;
+    border-right: $border-grey-dark;
+    
+    @include m.tableth {
+        position: fixed;
+        top: 10px;
+        left: -350px;
+        bottom: 10px;
+        border: $border-grey-dark;
+        height: auto;
+        border-radius: 10px;
+        border-color: $creme;
+        transition: left .5s cubic-bezier(0.22, 1, 0.36, 1);
+
+        html.has-menu-active & {
+            left: 10px;
+        }
+    }
+    
+    .sidebar-section {
+        padding: 2rem;
+
+        &:not(:last-child) {
+            border-bottom: $border-grey-dark;
+        }
+
+        @include m.tableth {
+            border: none !important;
+        }
+    }
+}

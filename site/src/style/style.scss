@@ -8,7 +8,8 @@
 @use 'base/layouts';
 
 @use 'sections/header';
-@use 'sections/footer';
-@use 'sections/fodder';
+@use 'sections/nav';
+@use 'sections/sidebar';
+@use 'sections/main';
 
 @use 'components/hamburger';

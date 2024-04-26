@@ -1,56 +1,58 @@
 @use '../abstracts/variables' as *;
 @use '../abstracts/mixins' as m;
 
-// <div class="hamburger">
-//     <span></span>
-//     <span></span>
-//     <span></span>
-// </div>
+.navbar-burger {
+	@include m.tableth {
+		display: grid;
+		place-items: center;
+		width: 70px;
+		height: 70px;
+		border-radius: 50%;
+		background: $creme;
+		border: solid 3px $sage;
+	}
 
-// const hamburger = document.querySelector('.navbar-burger')
-// hamburger.addEventListener('click', e => {
-//     document.documentElement.classList.toggle('has-menu-active');
-// })
-
-.hamburger {
-	display: block;
-	width: 30px;
-	height: 20px;
-	cursor: pointer;
-	position: relative;
-
-	span {
+	.hamburger {
 		display: block;
-		position: absolute;
-		height: 3px;
-		width: 100%;
-		background: #333;
-		border-radius: 3px;
-		transition: transform 0.3s ease;
+		width: 30px;
+		height: 20px;
+		cursor: pointer;
+		position: relative;
 
-		&:first-child {
-			top: 0;
-		}
+		span {
+			display: block;
+			position: absolute;
+			height: 3px;
+			width: 100%;
+			background: #333;
+			border-radius: 3px;
+			transition: transform 0.3s ease;
 
-		&:nth-child(2) {
-			top: 8px;
-		}
-
-		&:nth-child(3) {
-			top: 16px;
-		}
-
-		html.has-menu-active & {
 			&:first-child {
-				transform: translateY(8px) rotate(-45deg);
+				top: 0;
 			}
 
 			&:nth-child(2) {
-				opacity: 0;
+				top: 8px;
 			}
-			
+
 			&:nth-child(3) {
-				transform: translateY(-8px) rotate(45deg);
+				top: 16px;
+			}
+
+			html.has-menu-active & {
+				&:first-child {
+					transform: translateY(8px) rotate(-45deg);
+				}
+				
+				&:nth-child(2) {
+					transform: translateX(8px);
+					opacity: 0;
+				}
+				
+				&:nth-child(3) {
+					transform: translateY(-8px) rotate(45deg);
+				}
 			}
 		}
 	}

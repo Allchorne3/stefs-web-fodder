@@ -3,25 +3,20 @@ layout: base.njk
 title: Stef's Web Fodder
 ---
 
-<div class="body-bg"></div>
-
-<div class="section hero">
-    <div class="hero-body">
-        <div class="container">
-            <div class="banner-title">
+<div class="site-wrapper">
+    <aside id="sidebar">
+        <div class="sidebar-section">
+            <div id="title-container">
                 <div class="banner-title_wrapper">
-                    <h1 class="banner-title_text">Stef’s web</h1>
-                    <h1 class="banner-title_text">fodder</h1>
+                    <h1 class="banner-title_text">Stef’s</h1>
                 </div>
+                <h1>Web</h1>
+                <h1>Fodder</h1>
             </div>
         </div>
-    </div>
-</div>
 
-<section class="section is-medium py-0" id="section-fodder">
-    <div class="container">
-        <div class="fodder-container">
-            <div id="nav" class="hide-tableth">
+        <div class="sidebar-section">
+            <nav id="nav">
                 <ul role="list">
                     <li><a href="#kebabify-container">kebabify</a></li>
                     <li><a href="#lowercase-container">lowercase</a></li>
@@ -30,135 +25,108 @@ title: Stef's Web Fodder
                     <li><a href="#markdown-previewer-container">markdown</a></li>
                     <li><a href="#markdown-to-html-container">markdown to html</a></li>
                 </ul>
-            </div>
-            
-            <div id="fodder-accordion" class="accordion-container">
-                <a id="kebabify-container" class="is-page-anchor"></a>
-                <div class="fodder-accordion_item">
-                    <div class="accordion_header">
-                        <h2>kebabify</h2>
-                    </div>
-
-                    <div class="accordion_content">
-                        <div class="accordion_content-inner">
-                            <p class="subtitle">A tool that will turn text into kebab-case</p>
-
-                            <div id="kebabify">
-                                <form>
-                                    <input type="text" class="user-input" placeholder="Enter text here..."></input>
-                                    <label>Output</label>
-                                    <textarea class="previewer" rows="6"></textarea>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <a id="lowercase-container" class="is-page-anchor"></a>
-                <div class="fodder-accordion_item">
-                    <div class="accordion_header">
-                        <h2>lowercase</h2>
-                    </div>
-
-                    <div class="accordion_content">
-                        <div class="accordion_content-inner">
-                            <p class="subtitle">A tool that will turn text into lowercase</p>
-
-                            <div id="lowercase">
-                                <form>
-                                    <input type="text" class="user-input" placeholder="Enter text here..."></input>
-                                    <label>Output</label>
-                                    <textarea class="previewer" rows="6"></textarea>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <a id="uppercase-container" class="is-page-anchor"></a>
-                <div class="fodder-accordion_item">
-                    <div class="accordion_header">
-                        <h2>uppercase</h2>
-                    </div>
-
-                    <div class="accordion_content">
-                        <div class="accordion_content-inner">
-                            <p class="subtitle">A tool that will turn text into uppercase</p>
-
-                            <div id="uppercase">
-                                <form>
-                                    <input type="text" class="user-input" placeholder="Enter text here..."></input>
-                                    <label>Output</label>
-                                    <textarea class="previewer" rows="6"></textarea>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <a id="sentence-case-container" class="is-page-anchor"></a>
-                <div class="fodder-accordion_item">
-                    <div class="accordion_header">
-                        <h2>sentence case</h2>
-                    </div>
-
-                    <div class="accordion_content">
-                        <div class="accordion_content-inner">
-                            <p class="subtitle">A tool that will turn text into sentence case</p>
-
-                            <div id="sentence-case">
-                                <form>
-                                    <input type="text" class="user-input" placeholder="Enter text here..."></input>
-                                    <label>Output</label>
-                                    <textarea class="previewer" rows="6"></textarea>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <a id="markdown-previewer-container" class="is-page-anchor"></a>
-                <div class="fodder-accordion_item">
-                    <div class="accordion_header">
-                        <h2>markdown previewer</h2>
-                    </div>
-
-                    <div class="accordion_content">
-                        <div class="accordion_content-inner">
-                            <p class="subtitle">Any markdown that you enter will be shown as the browser would render it</p>
-
-                            <div id="markdown-previewer">
-                                <form>
-                                    <textarea class="user-input" rows="6" placeholder="Enter text here..."></textarea>
-                                    <label>Output: </label>
-                                    <div class="previewer"></div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <a id="markdown-to-html-container" class="is-page-anchor"></a>
-                <div class="fodder-accordion_item">
-                    <div class="accordion_header">
-                        <h2>markdown to html</h2>
-                    </div>
-
-                    <div class="accordion_content">
-                        <div class="accordion_content-inner">
-                            <p class="subtitle">Any markdown that you enter will be converted into HTML</p>
-
-                            <div id="markdown-to-html">
-                                <form>
-                                    <textarea class="user-input" rows="6" placeholder="Enter text here..."></textarea>
-                                    <label>Output: </label>
-                                    <textarea class="previewer" rows="6"></textarea>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            </nav>
         </div>
-    </div>
-</section>
+    </aside>
+
+    <main id="content">
+        <div id="fodder">
+            <div class="fodder-wrapper">
+                <a id="kebabify-container" class="is-page-anchor"></a>
+                <div class="fodder-wrapper_container">
+                    <h2>kebabify</h2>
+                    <p class="subtitle">A tool that will turn text into kebab-case</p>
+
+                    <div id="kebabify">
+                        <form>
+                            <input type="text" class="user-input" placeholder="Enter text here..."></input>
+                            <label>Output</label>
+                            <textarea class="previewer" rows="6"></textarea>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <a id="lowercase-container" class="is-page-anchor"></a>
+            <div class="fodder-wrapper">
+                <div class="fodder-wrapper_container">
+                    <h2>lowercase</h2>
+                    <p class="subtitle">A tool that will turn text into lowercase</p>
+
+                    <div id="lowercase">
+                        <form>
+                            <input type="text" class="user-input" placeholder="Enter text here..."></input>
+                            <label>Output</label>
+                            <textarea class="previewer" rows="6"></textarea>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <a id="uppercase-container" class="is-page-anchor"></a>
+            <div class="fodder-wrapper">
+                <div class="fodder-wrapper_container">
+                    <h2>uppercase</h2>
+                    <p class="subtitle">A tool that will turn text into uppercase</p>
+
+                    <div id="uppercase">
+                        <form>
+                            <input type="text" class="user-input" placeholder="Enter text here..."></input>
+                            <label>Output</label>
+                            <textarea class="previewer" rows="6"></textarea>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <a id="sentence-case-container" class="is-page-anchor"></a>
+            <div class="fodder-wrapper">
+                <div class="fodder-wrapper_container">
+                    <h2>sentence case</h2>
+                    <p class="subtitle">A tool that will turn text into sentence case</p>
+
+                    <div id="sentence-case">
+                        <form>
+                            <input type="text" class="user-input" placeholder="Enter text here..."></input>
+                            <label>Output</label>
+                            <textarea class="previewer" rows="6"></textarea>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <a id="markdown-previewer-container" class="is-page-anchor"></a>
+            <div class="fodder-wrapper">
+                <div class="fodder-wrapper_container">
+                    <h2>markdown previewer</h2>
+                    <p class="subtitle">Any markdown that you enter will be shown as the browser would render it</p>
+
+                    <div id="markdown-previewer">
+                        <form>
+                            <textarea class="user-input" rows="6" placeholder="Enter text here..."></textarea>
+                            <label>Output: </label>
+                            <div class="previewer"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <a id="markdown-to-html-container" class="is-page-anchor"></a>
+            <div class="fodder-wrapper">
+                <div class="fodder-wrapper_container">
+                    <h2>markdown to html</h2>
+                    <p class="subtitle">Any markdown that you enter will be converted into HTML</p>
+
+                    <div id="markdown-to-html">
+                        <form>
+                            <textarea class="user-input" rows="6" placeholder="Enter text here..."></textarea>
+                            <label>Output: </label>
+                            <textarea class="previewer" rows="6"></textarea>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+</div>

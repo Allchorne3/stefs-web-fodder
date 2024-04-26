@@ -1,7 +1,7 @@
-import SplitType from 'split-type'
-import { gsap } from "gsap";
+// import SplitType from 'split-type'
+// import { gsap } from "gsap";
 
-import Accordion from './accordion'
+// import Accordion from './accordion'
 import Kebab from './kebabify'
 import Lowercase from './lowercase'
 import Uppercase from './uppercase'
@@ -11,27 +11,27 @@ import MarkdownToHtml from './markdown-to-html'
 
 document.addEventListener('DOMContentLoaded', () => {
 	// Hero title text animations
-	const title = new SplitType('.banner-title_text', { types: 'lines' })
+	// const title = new SplitType('.banner-title_text', { types: 'lines' })
 
-	gsap.to('.line', {
-		y: 0,
-		stagger: .1,
-		duration: .5,
-		ease: "expoScale(0.5,7,none)",
-	})
+	// gsap.to('.line', {
+	// 	y: 0,
+	// 	stagger: .1,
+	// 	duration: .5,
+	// 	ease: "expoScale(0.5,7,none)",
+	// })
 
 
-	// Nav item animations
-	const navItems = document.querySelectorAll('#nav li a')
-	// const fodderHeaders = document.querySelectorAll('.accordion_header h2')
+	// // Nav item animations
+	// const navItems = document.querySelectorAll('#nav li a')
+	// // const fodderHeaders = document.querySelectorAll('.accordion_header h2')
 
-	if(window.matchMedia("(min-width: 899px)").matches) {
-		navItems.forEach((item, index) => {
-			setTimeout(() => {
-				item.classList.add('appear')
-			}, 100 * index)
-		});
-	}
+	// if(window.matchMedia("(min-width: 899px)").matches) {
+	// 	navItems.forEach((item, index) => {
+	// 		setTimeout(() => {
+	// 			item.classList.add('appear')
+	// 		}, 100 * index)
+	// 	});
+	// }
 
 	// if(window.matchMedia("(max-width: 899px)").matches) {
 	// 	fodderHeaders.forEach((item, index) => {
@@ -41,11 +41,18 @@ document.addEventListener('DOMContentLoaded', () => {
 	// 	});
 	// }
 
+	const hamburger = document.querySelector('.navbar-burger')
+	const menuItem = document.querySelectorAll('#nav li a')
 
-	// Function imports
-	if(window.matchMedia("(max-width: 899px)").matches) {
-		Accordion.setupAccordion()
-    }
+	hamburger.addEventListener('click', e => {
+		document.documentElement.classList.toggle('has-menu-active');
+	})
+	
+	menuItem.forEach(item => {
+		item.addEventListener('click', () => {
+			document.documentElement.classList.remove('has-menu-active');
+		})
+	})
 
 	Kebab.setupKebabify('#kebabify')
 	Lowercase.setupLowercase('#lowercase')
