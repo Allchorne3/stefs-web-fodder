@@ -1,5 +1,5 @@
-// import SplitType from 'split-type'
-// import { gsap } from "gsap";
+import SplitType from 'split-type'
+import { gsap } from "gsap";
 
 // import Accordion from './accordion'
 import Kebab from './kebabify'
@@ -10,49 +10,45 @@ import MarkdownPreviewer from './markdown-previewer'
 import MarkdownToHtml from './markdown-to-html'
 
 document.addEventListener('DOMContentLoaded', () => {
-	// Hero title text animations
-	// const title = new SplitType('.banner-title_text', { types: 'lines' })
+	const title = new SplitType('.banner-title_text', { types: 'chars' })
 
-	// gsap.to('.line', {
-	// 	y: 0,
-	// 	stagger: .1,
-	// 	duration: .5,
-	// 	ease: "expoScale(0.5,7,none)",
-	// })
-
-
-	// // Nav item animations
-	// const navItems = document.querySelectorAll('#nav li a')
-	// // const fodderHeaders = document.querySelectorAll('.accordion_header h2')
-
-	// if(window.matchMedia("(min-width: 899px)").matches) {
-	// 	navItems.forEach((item, index) => {
-	// 		setTimeout(() => {
-	// 			item.classList.add('appear')
-	// 		}, 100 * index)
-	// 	});
-	// }
-
-	// if(window.matchMedia("(max-width: 899px)").matches) {
-	// 	fodderHeaders.forEach((item, index) => {
-	// 		setTimeout(() => {
-	// 			item.classList.add('appear')
-	// 		}, 100 * index)
-	// 	});
-	// }
-
-	const hamburger = document.querySelector('.navbar-burger')
-	const menuItem = document.querySelectorAll('#nav li a')
-
+	const hamburger = document.querySelector('.navbar-burger');
+	const menuItem = document.querySelectorAll('#nav li a');
+	
 	hamburger.addEventListener('click', e => {
 		document.documentElement.classList.toggle('has-menu-active');
-	})
+		handleNavAnimation();
+	});
 	
+	function handleNavAnimation() {
+		menuItem.forEach((item, index) => {
+			if (window.matchMedia("(min-width: 999px)").matches) {
+				animateNavItems('appear', item, index);
+			}
+	
+			if (window.matchMedia("(max-width: 999px)").matches) {
+				if (document.documentElement.classList.contains('has-menu-active')) {
+					animateNavItems('appear', item, index);
+				} else {
+					item.classList.remove('appear')
+				}
+			}
+		});
+		console.log("fired")
+	}
+
 	menuItem.forEach(item => {
 		item.addEventListener('click', () => {
 			document.documentElement.classList.remove('has-menu-active');
-		})
-	})
+			handleNavAnimation();
+		});
+	});
+	
+	if(window.matchMedia("(min-width: 999px)").matches) {
+		animateChars('.char')
+
+		handleNavAnimation();	
+	}
 
 	Kebab.setupKebabify('#kebabify')
 	Lowercase.setupLowercase('#lowercase')
@@ -61,3 +57,27 @@ document.addEventListener('DOMContentLoaded', () => {
 	MarkdownPreviewer.setupMarkdownPreviewer('#markdown-previewer')
 	MarkdownToHtml.setupMarkdownToHtml('#markdown-to-html')
 })
+
+// function animateNavItems(className, item, index) {
+// 	document.querySelector('h1:nth-child(2)').addEventListener('animationend', () => {
+// 		setTimeout(() => {
+// 			item.classList.add(className)
+// 		}, 100 * index)
+// 	})
+// }
+
+function animateNavItems(className, item, index) {
+	setTimeout(() => {
+		item.classList.add(className);
+		console.log(`Added 'appear' class to item ${index}:`, item.classList);
+	}, 100 * index)
+}
+
+function animateChars(char) {
+	gsap.to(char, {
+		y: 0,
+		stagger: .03,
+		duration: .2,
+		ease: "expoScale(0.5,7,none)",
+	})
+}
