@@ -3,7 +3,7 @@
 $screen-sizes: (
     mobile: 649px,
     tablet: 768px,
-    tableth: 899px,
+    tableth: 999px,
     desktop: 1024px,
     large-desktop: 1249px
 );
@@ -12,6 +12,11 @@ $screen-sizes: (
 @each $size, $px in $screen-sizes {
     .hide-#{$size} {
         @media (max-width: $px) {
+            display: none !important;
+        }
+    }
+    .show-#{$size} {
+        @media (min-width: $px) {
             display: none !important;
         }
     }

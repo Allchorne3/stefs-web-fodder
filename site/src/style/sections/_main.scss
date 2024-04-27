@@ -1,0 +1,79 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as m;
+
+main#content {
+    flex: 1;
+    padding: 5rem;
+
+    @include m.widescreen {
+        padding: 3rem;
+    }
+
+    @include m.mobile {
+        padding: 1.5rem;
+    }
+
+    #fodder {
+        opacity: 0;
+        transform: translateY(40px);
+        animation: fade 1s linear forwards;
+        animation-delay: .3s;
+
+        .fodder-wrapper {
+            background-image: linear-gradient(#779F80, #C7D655, #E36F45);
+            border-radius: 8px;
+            padding: .25rem;
+            margin-bottom: 6rem;
+            
+            @include m.mobile {
+                margin-bottom: 2rem;
+                padding: .1rem;
+            }
+
+            &_container {
+                background: $black;
+                border-radius: 10px;
+                padding: 2rem;
+                
+                @include m.mobile {
+                    padding: 1rem;
+                }
+
+                form {
+                    & > * {
+                        width: 100%;
+                    }
+
+                    input,
+                    textarea,
+                    .previewer {
+                        background: $grey-dark;
+                        border: none;
+                        padding: .6rem 1rem;
+                        border-radius: 5px;
+                        color: $white;
+                        font-size: $fs-4;
+                    }
+
+                    label {
+                        display: inline-block;
+                        margin-top: 2rem;
+                        margin-bottom: .5rem;
+                        font-size: $fs-4;
+                    }
+
+                    .previewer {
+                        min-height: 200px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@keyframes fade {
+    to {
+        opacity: 1;
+        transform: translate(0);
+    }
+}

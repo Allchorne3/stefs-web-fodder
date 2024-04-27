@@ -1,0 +1,76 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as m;
+
+aside#sidebar {
+    position: sticky;
+    top: 0;
+    background: $black;
+    height: 100vh;
+    width: $sidebar-width;
+    z-index: 99;
+
+    // border-right: $border-grey-dark;
+
+    &:before {
+		content: "";
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 1px;
+		height: 0;
+		background: $grey-dark;
+        animation: borderheight 2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+	}
+
+	@keyframes borderheight {
+		to {
+			height: 100%;
+		}
+	}
+    
+    @include m.tableth {
+        position: fixed;
+        top: 10px;
+        left: -350px;
+        bottom: 10px;
+        border: $border-grey-dark;
+        height: auto;
+        border-radius: 10px;
+        border-color: $creme;
+        transition: left .5s cubic-bezier(0.22, 1, 0.36, 1);
+
+        html.has-menu-active & {
+            left: 10px;
+        }
+    }
+    
+    .sidebar-section {
+        padding: 2rem;
+
+        &:not(:last-child) {
+            position: relative;
+
+            &:before {
+                content: "";
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 0;
+                height: 1px;
+                background: $grey-dark;
+                animation: borderwidth 2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+                animation-delay: .2s;
+            }
+        
+            @keyframes borderwidth {
+                to {
+                    width: 100%;
+                }
+            }
+        }
+
+        @include m.tableth {
+            border: none !important;
+        }
+    }
+}

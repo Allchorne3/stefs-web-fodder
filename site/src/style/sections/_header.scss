@@ -1,35 +1,45 @@
 @use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as m;
+@use '../components/keyframes' as a;
 
 /* //////////////////////
-  Header
+	Header
   /////////////////////// */
 
-.page-header {
-  padding: 2em 0;
+#header {
+	position: relative;
+	background: $black;
+	padding: 2.8rem;
+	display: flex;
+	justify-content: end;
 
-  &__content {
-    display: flex;
-    justify-content: space-between;
-  }
-  
-}
+	&:before {
+		content: "";
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		width: 0;
+		height: 1px;
+		background: $grey-dark;
+        animation: borderwidth 2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 
-.nav-list {
-  margin: 0;
-  padding: 0;
-  font-family: $ff-heading;
+		@include m.tableth {
+			display: none;
+		}
+	}
 
-  a {
-    color: $clr-primary;
-    text-decoration: none;
-
-    &:focus,
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-}
-
-[aria-current="page"] {
-  font-weight: bold;
+	@keyframes borderwidth {
+		to {
+			width: 100%;
+		}
+	}
+	
+	@include m.tableth {
+		padding: 1.5rem 1.5rem 0;
+		position: sticky;
+		top: 0;
+		border-bottom: none;
+		background: none;
+		z-index: 999;
+	}
 }
