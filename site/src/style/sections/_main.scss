@@ -16,7 +16,7 @@ main#content {
     #fodder {
         opacity: 0;
         transform: translateY(40px);
-        animation: fade 1s linear forwards;
+        animation: fade 1s ease-out forwards;
         animation-delay: .3s;
 
         .fodder-wrapper {
@@ -56,14 +56,55 @@ main#content {
                     }
 
                     label {
-                        display: inline-block;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
                         margin-top: 2rem;
                         margin-bottom: .5rem;
                         font-size: $fs-4;
                     }
 
-                    .previewer {
-                        min-height: 200px;
+                    & > div {
+                        position: relative;
+
+                        .previewer {
+                            min-height: 200px;
+                            width: 100%;
+                        }
+
+                        button.copy {
+                            position: absolute;
+                            right: .5rem;
+                            top: .625rem;
+                            border: solid 1px $white;
+                            padding: .25rem .7rem;
+                            border-radius: 9px;
+                            font-size: $fs-7;
+                            margin-bottom: .25rem;
+                            background: none;
+                            color: $white;
+                            transition: all .2s ease;
+                            display: inline-block;
+
+                            &:disabled {
+                                color: grey;
+                                border-color: grey;
+                            }
+
+                            &:hover {
+                                cursor: pointer;
+                            }
+
+                            &.success {
+                                color: $clr-primary;
+                                border-color: $clr-primary;
+                            }
+
+                            &.fail {
+                                color: crimson;
+                                border-color: crimson;
+                            }
+                        }
                     }
                 }
             }

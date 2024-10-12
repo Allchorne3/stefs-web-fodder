@@ -34,7 +34,6 @@ document.addEventListener('DOMContentLoaded', () => {
 				}
 			}
 		});
-		console.log("fired")
 	}
 
 	menuItem.forEach(item => {
@@ -50,6 +49,25 @@ document.addEventListener('DOMContentLoaded', () => {
 		handleNavAnimation();	
 	}
 
+	// Copy to clipboard functionality
+	const copyButtons = document.querySelectorAll('button.copy')
+
+	for(const button of copyButtons) {
+		const parent = button.parentElement.parentElement.parentElement
+		const input = parent.querySelector('.user-input')
+		const previewer = parent.querySelector('.previewer')
+		button.disabled = true
+
+		input.addEventListener('keyup', () => {
+			button.disabled = previewer.value !== '' ? false : true
+		})
+		
+		button.addEventListener('click', function(e) {
+			e.preventDefault()
+			copyToClipboard(previewer, parent)
+		})
+	}
+
 	Kebab.setupKebabify('#kebabify')
 	Lowercase.setupLowercase('#lowercase')
 	Uppercase.setupUppercase('#uppercase')
@@ -58,18 +76,10 @@ document.addEventListener('DOMContentLoaded', () => {
 	MarkdownToHtml.setupMarkdownToHtml('#markdown-to-html')
 })
 
-// function animateNavItems(className, item, index) {
-// 	document.querySelector('h1:nth-child(2)').addEventListener('animationend', () => {
-// 		setTimeout(() => {
-// 			item.classList.add(className)
-// 		}, 100 * index)
-// 	})
-// }
 
 function animateNavItems(className, item, index) {
 	setTimeout(() => {
 		item.classList.add(className);
-		console.log(`Added 'appear' class to item ${index}:`, item.classList);
 	}, 100 * index)
 }
 
@@ -80,4 +90,28 @@ function animateChars(char) {
 		duration: .2,
 		ease: "expoScale(0.5,7,none)",
 	})
+}
+
+function copyToClipboard(el, parent) {
+	if(!el.value) {
+		console.log(`No text to be copied from ${parent.id} output`)
+		return;
+	}
+
+	navigator.clipboard.writeText(el.value).then(() => {
+		parent.querySelector('.copy').classList.add('success')
+
+		setTimeout(() => {
+			parent.querySelector('.copy').classList.remove('success')
+		}, 1000)
+	}).catch(() => {
+		console.error(`Could not copy text: ${error}`)
+	})
+}
+
+function successFail(container, el, className) {
+	container.querySelector(el).classList.add(className)
+	setTimeout(() => {
+		container.querySelector(el).classList.remove(className)
+	}, 1000)
 }

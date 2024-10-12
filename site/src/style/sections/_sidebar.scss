@@ -9,8 +9,6 @@ aside#sidebar {
     width: $sidebar-width;
     z-index: 99;
 
-    // border-right: $border-grey-dark;
-
     &:before {
 		content: "";
 		position: absolute;
